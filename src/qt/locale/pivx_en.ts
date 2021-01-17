@@ -7587,7 +7587,7 @@ SBRC Wallet</source>
     </message>
     <message>
         <location line="-103"/>
-        <source>How SBRC respects your privacy?</source>
+        <source>How does SBRC respect your privacy?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
