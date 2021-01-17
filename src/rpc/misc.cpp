@@ -114,8 +114,8 @@ UniValue getinfo(const UniValue& params, bool fHelp)
         obj.push_back(Pair("walletversion", pwalletMain->GetVersion()));
         obj.push_back(Pair("balance", ValueFromAmount(pwalletMain->GetBalance())));
         obj.push_back(Pair("staking status", (pwalletMain->pStakerStatus->IsActive() ?
-                                                "Staking Active" :
-                                                "Staking Not Active")));
+                                                "Staking is active" :
+                                                "Staking is not active")));
     }
 #endif
     obj.push_back(Pair("blocks", (int)chainActive.Height()));
