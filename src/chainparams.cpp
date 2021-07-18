@@ -95,11 +95,11 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (1, uint256("0x0000014aa8eebde9e9a5505a3378753f6d914b1481f07efaef3ffa3bb3f5a633"))
+    (1, uint256("0x00000d017467537f61bc4f32305f12760e31aba1be2d5efde532496b507b448e"))
     ;
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1609577420, // * UNIX timestamp of last checkpoint block
+    1626490153, // * UNIX timestamp of last checkpoint block
     2,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -148,7 +148,7 @@ public:
         consensus.nPoolMaxTransactions = 3;
         consensus.nProposalEstablishmentTime = 60 * 60 * 24;    // must be at least a day old to make it into a budget
         consensus.nStakeMinAge = 60 * 60;
-        consensus.nStakeMinDepth = 100;
+        consensus.nStakeMinDepth = 60;
         consensus.nTargetTimespan = 1 * 60;
         consensus.nTargetTimespanV2 = consensus.nTargetTimespan;
         consensus.nTargetSpacing = 1 * 60;
@@ -158,16 +158,16 @@ public:
         consensus.strSporkPubKey ="04d45416e4a64b1b051e2a2ebd80ced5efe148cf5fbcb70e56860957675a2da1a21fd522c42c1ed18a1ec42641589a09cf3f58678d213825dc21798183a005a984";
 
         // height-based activations
-        consensus.height_last_PoW = 500;
-        consensus.height_last_ZC_AccumCheckpoint = 200; // (consensus.height_start_ZC start + 100)
+        consensus.height_last_PoW = 300;
+        consensus.height_last_ZC_AccumCheckpoint = 70; // (consensus.height_start_ZC start + 100)
         consensus.height_last_ZC_WrappedSerials = disabled;
-        consensus.height_start_BIP65 = 210; //--------------------------------------------------------//-3rd pass - nVersion 5 Block Header
+        consensus.height_start_BIP65 = 75; //--------------------------------------------------------//-3rd pass - nVersion 5 Block Header
         consensus.height_start_InvalidUTXOsCheck = disabled;
-        consensus.height_start_MessSignaturesV2 = 230;;//---------------------------------------//-5th pass - nVersion 7 Blocks   --- start new signitures at v7 blocks (TimeProtoV2) -- Transition Finished --
-        consensus.height_start_StakeModifierNewSelection = 235;//---------------------------//-1st pass - Start new stake modifier
-        consensus.height_start_StakeModifierV2 = 220;//------------------------------------------//-4th pass - nVersion 6 Blocks
-        consensus.height_start_TimeProtoV2 = 230;//-----------------------------------------------//-5th pass - nVersion 7 Blocks   ---------------------------------------------------------------------- Transition Finished---
-        consensus.height_start_ZC = 100;//-------------------------------------------------------------//-2nd pass  - nVersion 4 Blocks
+        consensus.height_start_MessSignaturesV2 = 80;;//---------------------------------------//-5th pass - nVersion 7 Blocks   --- start new signitures at v7 blocks (TimeProtoV2) -- Transition Finished --
+        consensus.height_start_StakeModifierNewSelection = 85;//---------------------------//-1st pass - Start new stake modifier
+        consensus.height_start_StakeModifierV2 = 76;//------------------------------------------//-4th pass - nVersion 6 Blocks
+        consensus.height_start_TimeProtoV2 = 80;//-----------------------------------------------//-5th pass - nVersion 7 Blocks   ---------------------------------------------------------------------- Transition Finished---
+        consensus.height_start_ZC = 10;//-------------------------------------------------------------//-2nd pass  - nVersion 4 Blocks
         consensus.height_start_ZC_InvalidSerials = disabled;
         consensus.height_start_ZC_PublicSpends = disabled;
         consensus.height_start_ZC_SerialRangeCheck = disabled;
@@ -201,7 +201,7 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xd3;
+        pchMessageStart[0] = 0xa3;
         pchMessageStart[1] = 0xb2;
         pchMessageStart[2] = 0xee;
         pchMessageStart[3] = 0x48;
